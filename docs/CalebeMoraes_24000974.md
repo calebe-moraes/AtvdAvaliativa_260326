@@ -69,6 +69,7 @@ RF07 — Dashboard de Indicadores Gerenciais (BI):
 Disponibilizar visões consolidadas de vendas (Curva ABC de produtos), ticket médio por unidade e inadimplência de convênios.
 RF08 — Gestão de Devoluções e Perdas:
 Funcionalidade para estorno de vendas ou baixa por avaria/vencimento, com justificativa obrigatória para auditoria.
+
 ---
 
 # 🛡 4. Requisitos Não Funcionais (mínimo: 4)
@@ -158,6 +159,7 @@ Extends:
 UC01 ← UC03 (Apenas para medicamentos controlados).
 UC01 ← UC04 (Apenas para clientes novos).
 UC01 ← UC05 (Apenas para pagamentos faturados/prazo).
+
 ---
 
 # 6. Documentação dos Casos de Uso
@@ -183,6 +185,7 @@ FA02 — Cliente Novo: O atendente realiza o cadastro rápido (Extend UC04).
 Relacionamentos
 Include: UC02 (Consultar Estoque).
 Extend: UC03 (Validar Receita), UC04 (Registrar Cliente), UC05 (Venda a Prazo).
+
 ![alt text](image-1.png)
 
 UC02 — Consultar Disponibilidade de Estoque
@@ -200,6 +203,7 @@ Sistema exibe o saldo em estoque.
 Sistema reserva a quantidade para a venda em curso.
 Fluxos Alternativos / Exceções
 FA01 — Sem estoque local: Sistema sugere consulta em outras unidades da rede.
+
 ![alt text](image-3.png)
 
 UC03 — Validar Receita Médica
@@ -217,6 +221,7 @@ Sistema valida as informações.
 Sistema libera a trava do item na venda.
 Fluxos Alternativos / Exceções
 FA01 — Receita Inválida: Farmacêutico recusa a venda e o item é removido do carrinho.
+
 ![alt text](image-4.png)
 
 UC04 — Registrar Cliente
@@ -232,6 +237,7 @@ Atendente solicita Nome e CPF.
 Atendente preenche os dados no sistema.
 Sistema salva o novo registro.
 Venda prossegue com o cliente identificado.
+
 ![alt text](image-5.png)
 
 UC05 — Processar Venda a Prazo
@@ -247,6 +253,7 @@ Atendente seleciona "Venda a Prazo".
 Sistema verifica o limite de crédito do cliente.
 Cliente assina o comprovante (físico ou digital).
 Sistema registra o débito no financeiro.
+
 ![alt text](image-7.png)
 
 UC06 — Gerenciar Entrada de Mercadorias
@@ -264,6 +271,7 @@ Sistema atualiza as quantidades no estoque.
 Sistema gera o lançamento financeiro (Include UC07).
 Relacionamentos
 Include: UC07 (Lançar Contas a Pagar).
+
 ![alt text](image-6.png)
 
 UC07 — Lançar Contas a Pagar
@@ -278,6 +286,7 @@ Fluxo Principal
 Usuário insere valor, vencimento e fornecedor.
 Sistema classifica a despesa.
 Sistema salva o lançamento como "Aberto".
+
 ![alt text](image-8.png)
 
 UC08 — Controlar Contas a Receber
@@ -293,6 +302,7 @@ Financeiro consulta títulos vencendo no dia.
 Financeiro identifica o pagamento do cliente/convênio.
 Financeiro registra a baixa (recebimento).
 Sistema atualiza o status para "Recebido".
+
 ![alt text](image-9.png)
 
 UC09 — Emitir Relatórios Estratégicos
@@ -310,6 +320,7 @@ Sistema processa os dados de vendas e estoque.
 Relatório é exibido para análise.
 Relacionamentos
 Include: UC10 (Autenticar Usuário).
+
 ![alt text](image-10.png)
 
 UC10 — Autenticar Usuário
@@ -325,11 +336,15 @@ Usuário insere Login e Senha.
 Sistema valida as credenciais.
 Sistema identifica o cargo (Atendente, Gerente, etc).
 Sistema carrega o menu conforme as permissões.
+
 ![alt text](image-11.png)
 
+---
 
+- Diagrama Geral:
 
-- Diagrama Geral: ![alt text](image.png)
+  ![alt text](image.png)
+  
 ---
 
 
