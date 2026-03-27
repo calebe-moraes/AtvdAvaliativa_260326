@@ -149,7 +149,7 @@ UC10 — Autenticar Usuário (Segurança/RBAC)
 Ator: Todos.
 Descrição: Valida as credenciais e define o nível de acesso (Role-Based Access Control) do usuário na sessão ativa.
 
-🔗 Relacionamentos Entre Casos de Uso
+Relacionamentos Entre Casos de Uso:
 Includes:
 UC01 → UC02 (Venda exige estoque).
 UC06 → UC07 (Compra exige lançamento financeiro).
