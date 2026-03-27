@@ -8,25 +8,22 @@ Data: 26/03/2026
 ---
 
 # 1. Definição do MVP
-O que está DENTRO do MVP:
-
--Módulo de PDV Completo: Venda de produtos comuns e consulta de estoque em tempo real para evitar furos no inventário.
--Gestão de Estoque Base: Atualização automática de entradas (compras) e saídas (vendas).
--Cadastro Rápido de Clientes: Identificação básica (CPF/Nome) para permitir o histórico de compras.
--Financeiro Essencial: Lançamento automático de Contas a Receber (para vendas a prazo) e -Contas a Pagar (para compras de fornecedores).
--Segurança (Login): Autenticação básica para separar o que o Atendente faz do que o Gerente faz.
+-O que está DENTRO do MVP:    
+  - Módulo de PDV Completo: Venda de produtos comuns e consulta de estoque em tempo real para evitar furos no inventário.
+  - Gestão de Estoque Base: Atualização automática de entradas (compras) e saídas (vendas).
+  - Cadastro Rápido de Clientes: Identificação básica (CPF/Nome) para permitir o histórico de compras.
+  - Financeiro Essencial: Lançamento automático de Contas a Receber (para vendas a prazo) e -Contas a Pagar (para compras de fornecedores).
+  - Segurança (Login): Autenticação básica para separar o que o Atendente faz do que o Gerente faz.
 
 O que está FORA do MVP:
-
--Módulo de BI e Relatórios Avançados: Gráficos de desempenho e previsões de demanda (isso entra na V2).
--Integração SNGPC: O envio automático de dados de medicamentos controlados para a ANVISA (o sistema valida a receita no balcão, mas a exportação de arquivos fica para depois).
--Transferência entre Unidades: O ajuste de estoque entre filiais será feito manualmente nesta fase inicial.
--Módulo de Fidelidade/Promoções: Regras de pontos ou descontos progressivos complexos.
+  - Módulo de BI e Relatórios Avançados: Gráficos de desempenho e previsões de demanda (isso entra na V2).
+  - Integração SNGPC: O envio automático de dados de medicamentos controlados para a ANVISA (o sistema valida a receita no balcão, mas a exportação de arquivos fica para depois).
+  - Transferência entre Unidades: O ajuste de estoque entre filiais será feito manualmente nesta fase inicial.
+  - Módulo de Fidelidade/Promoções: Regras de pontos ou descontos progressivos complexos.
 
 Por que essas escolhas foram feitas?
-
--A prioridade foi estancar as perdas financeiras causadas por estoques divergentes e falhas em lançamentos manuais, que são as dores principais citadas pela diretoria.
--Ao focar na trindade Venda-Estoque-Financeiro, garantimos que a operação básica seja confiável. Deixamos a parte de inteligência de dados (Relatórios) e automações regulatórias (SNGPC) para o próximo ciclo, pois elas dependem de uma base de dados já saneada e funcional. 
+  - A prioridade foi estancar as perdas financeiras causadas por estoques divergentes e falhas em lançamentos manuais, que são as dores principais citadas pela diretoria.
+  - Ao focar na trindade Venda-Estoque-Financeiro, garantimos que a operação básica seja confiável. Deixamos a parte de inteligência de dados (Relatórios) e automações regulatórias (SNGPC) para o próximo ciclo, pois elas dependem de uma base de dados já saneada e funcional. 
 
 Exemplo de início:  
 
@@ -55,38 +52,52 @@ Lista de requisitos funcionais do MVP:
 
 RF01 — Catálogo Centralizado de Produtos:
 O sistema deve manter um repositório único de produtos, com atributos de NCM, fabricante, unidade de medida e código EAN-13, para garantir a padronização entre todas as filiais.
+
 RF02 — Sincronização de Inventário Multiloja:
 Permitir que uma unidade consulte, em tempo real, a disponibilidade de um item em outras farmácias da rede, para facilitar transferências entre lojas.
+
 RF03 — Módulo de Quick-Check-in de Clientes:
 Interface simplificada para captura de dados básicos de clientes (CPF, Nome, Telefone), durante o fluxo de PDV (Ponto de Venda), para fins de fidelização.
+
 RF04 — Emissão de Documentos Fiscais e Comprovantes:
 Geração automática de cupons de venda e extratos de conferência de itens, com detalhamento de impostos e descontos aplicados.
+
 RF05 — Automação de Contas a Pagar:
 Registro automático de obrigações financeiras, a partir do faturamento de pedidos de compra junto aos fornecedores cadastrados.
+
 RF06 — Rastreabilidade de Lotes e Validade:
 O sistema deve permitir o registro do lote e data de validade no momento da entrada, bloqueando a venda de itens vencidos.
+
 RF07 — Dashboard de Indicadores Gerenciais (BI):
 Disponibilizar visões consolidadas de vendas (Curva ABC de produtos), ticket médio por unidade e inadimplência de convênios.
+
 RF08 — Gestão de Devoluções e Perdas:
 Funcionalidade para estorno de vendas ou baixa por avaria/vencimento, com justificativa obrigatória para auditoria.
 
 ---
 
 # 🛡 4. Requisitos Não Funcionais (mínimo: 4)
-RNF01 — Catálogo Centralizado de Produtos:
+**RNF01** — Catálogo Centralizado de Produtos:
 O sistema deve manter um repositório único de produtos, com atributos de NCM, fabricante, unidade de medida e código EAN-13, garantindo a padronização entre todas as filiais.
-RNF02 — Sincronização de Inventário Multiloja:
-O sistema deve permitir que uma unidade consulte, em tempo real, a disponibilidade de um item em outras farmácias da rede, facilitando transferências entre lojas.
-RNF03 — Módulo de Quick-Check-in de Clientes:
+
+**RNF02** — Sincronização de Inventário Multiloja:
+O sistema deve permitir que uma unidade consulte, em tempo real, a disponibilidade de um item em outras farmácias da rede, facilitando transferências entre lojas
+
+**RNF03** — Módulo de Quick-Check-in de Clientes:
 O sistema deve oferecer uma interface simplificada para captura de dados básicos de clientes (CPF, nome, telefone) durante o fluxo de PDV (Ponto de Venda), garantindo agilidade no atendimento.
-RNF04 — Emissão de Documentos Fiscais e Comprovantes:
+
+**RNF04** — Emissão de Documentos Fiscais e Comprovantes:
 O sistema deve gerar automaticamente cupons de venda e extratos de conferência de itens, com detalhamento de impostos e descontos aplicados.
-RNF05 — Automação de Contas a Pagar:
+
+**RNF05** — Automação de Contas a Pagar:
 O sistema deve registrar automaticamente obrigações financeiras a partir do faturamento de pedidos de compra junto aos fornecedores cadastrados.
-RNF06 — Rastreabilidade de Lotes e Validade:
+
+**RNF06** — Rastreabilidade de Lotes e Validade:
 O sistema deve permitir o registro de lote e data de validade no momento da entrada, garantindo o bloqueio da venda de itens vencidos.
-RNF07 — Dashboard de Indicadores Gerenciais (BI):
+
+**RNF07** — Dashboard de Indicadores Gerenciais (BI):
 O sistema deve disponibilizar visões consolidadas de vendas, como curva ABC de produtos, ticket médio por unidade e inadimplência de convênios.
+
 RNF08 — Gestão de Devoluções e Perdas:
 O sistema deve permitir o estorno de vendas ou baixa por avaria/vencimento, exigindo justificativa obrigatória para fins de auditoria.
 
